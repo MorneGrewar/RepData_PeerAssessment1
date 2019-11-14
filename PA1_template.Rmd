@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Assignment 1, Month 5"
 author: "Morne Grewar"
 date: "14/11/2019"
 output: html_document
@@ -117,8 +117,6 @@ data$weekday <- gsub("Saturday|Sunday","Weekend",x = data$weekday)
 data$weekday <- as.factor(data$weekday)
 
 Week_end <- data %>% group_by(weekday,interval) %>% summarise(AVG_Steps = mean(steps, na.rm = TRUE))
-
-qplot(x = Week_end$interval,y = Week_end$AVG_Steps, geom = "line")
 
 plot <- ggplot(Week_end,mapping = aes(interval,AVG_Steps))+geom_line()+facet_wrap(weekday ~.,nrow = 2)
 plot
